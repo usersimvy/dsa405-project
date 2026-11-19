@@ -29,4 +29,17 @@ Source 1 (one row per inspection) is left-joined to the scraped facilities (one 
 ## 5. Known limitations
 - The scraped facilities are the ones inspected most recently (the newest portal pages), not a random sample.
 - Source 1 ends in September 2026, so the newest portal inspections are not in it yet.
-- The portal is live, so a fresh scrape returns the newest 40 pages at that moment and the in-scope row count changes between
+- The portal is live, so a fresh scrape returns the newest 40 pages at that moment and the in-scope row count changes between fresh runs. The notebook caches the pages, so re-runs from the cache give identical results.
+
+## 6. How to Run
+1. Open the notebook in Google Colab using the badge link in the notebook file.
+2. Select **Runtime → Restart session and run all** to execute the pipeline from top to bottom. The first run takes a few minutes because it downloads Source 1 and scrapes and caches 40 portal pages.
+3. Required packages: `pandas`, `requests`, `beautifulsoup4`, `lxml` (all preinstalled in Colab).
+
+## 7. Repository layout
+```
+data/raw/        raw responses, untouched after download (HTML pages, CSV)
+data/processed/  parsed and merged tables
+DSA405_002_FA26_P3_svyas2.ipynb
+README.md
+```
