@@ -13,7 +13,7 @@ This project performs an end-to-end data audit, cleaning pipeline, and accountin
 
 | # | Source | Access | Terms |
 |---|---|---|---|
-| 1 | Wake County Environmental Services Department, Food Inspections CSV (`Food_Inspections.csv`). Download link: `https://data-wake.opendata.arcgis.com/api/download/v1/items/ebe3ae7f76954fad81411612d7c4fb17/csv?layers=1` | Single cached download by code, saved to `data/raw/Food_Inspections.csv` | [PASTE the license text from the dataset page here, or write "No license is stated on the dataset page."] |
+| 1 | Wake County Environmental Services Department, Food Inspections CSV (`Food_Inspections.csv`). Download link: `https://data-wake.opendata.arcgis.com/api/download/v1/items/ebe3ae7f76954fad81411612d7c4fb17/csv?layers=1` | Single cached download by code, saved to `data/raw/Food_Inspections.csv` | Creative Commons Attribution 4.0 International (CC BY 4.0), https://creativecommons.org/licenses/by/4.0, as listed in the dataset's catalog metadata. Attribution: Wake County Environmental Services. |
 | 2 | Wake County Health Dept public inspection portal run by CDP Inc. (`https://public.cdpehs.com/NCENVPBL/ESTABLISHMENT/ShowESTABLISHMENTTablePage.aspx?ESTTST_CTY=92`) | `requests` + BeautifulSoup + `pandas.read_html`, paginated ASP.NET postback | Public records; no robots.txt is published (HTTP 404) |
 
 ## 3. Collection behaviour (P3)
@@ -38,7 +38,7 @@ Source 1 (one row per inspection) is left-joined to the scraped facilities (one 
 
 ## 7. Repository layout
 ```
-data/raw/        raw responses, untouched after download (HTML pages, CSV)
+data/raw/ line to: data/raw/ the 40 cached portal pages (cdp_page_0001.html to cdp_page_0040.html) and the robots.txt check; the Source 1 CSV is downloaded by the notebook and not committed
 data/processed/  parsed and merged tables
 DSA405_002_FA26_P3_svyas2.ipynb
 README.md
